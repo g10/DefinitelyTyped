@@ -1,4 +1,4 @@
-// Type definitions for hapi
+// Type definitions for hapi v7.5.x
 // Project: http://github.com/spumko/hapi
 // Definitions by: Hakubo <http://github.com/hakubo>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
