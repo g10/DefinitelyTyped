@@ -66,6 +66,7 @@ declare module "hapi" {
         cache(options: CachePolicy): void;
 
         connection(options?: ServerConnection): Server;
+        connection(options?: any): Server;
 
         decorate(type: string, property: string, method: () => void): void;
 
