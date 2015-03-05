@@ -163,6 +163,7 @@ function test_bindings() {
 
     ko.bindingHandlers.yourBindingName = {
         init: function (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
+        	return { "controlsDescendantBindings": true };
         },
         update: function (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
         }
@@ -648,4 +649,11 @@ function test_Components() {
         // Empty config for registering custom elements that are handled by name convention
 		ko.components.register('name', { /* No config needed */ });
     }
+}
+
+function testUnwrapUnion() {
+    
+    var possibleObs: KnockoutObservable<number> | number;
+    var num = ko.unwrap(possibleObs);
+
 }

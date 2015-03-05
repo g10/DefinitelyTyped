@@ -3,7 +3,6 @@
 // Definitions by: Qinfeng Chen <https://github.com/qinfchen>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 
-/// <reference path="../jquery/jquery.d.ts" />
 declare module SigmaJs{
     interface Animation {
         camera(camera: Camera, target: { [index: string]: any }, options: { [index: string]: any }): number;
@@ -75,6 +74,14 @@ declare module SigmaJs{
         nodes(ids: string[]): Node[];
     }
 
+    interface Image {
+        clip?: number;
+        scale?: number;
+        url?: string;
+        x?: number;
+        y?: number;
+    }
+
     interface Miscellaneous {
         animation: Animation;
     }
@@ -100,11 +107,11 @@ declare module SigmaJs{
     }
 
     interface Renderer {
-        container: Element;
+        container: HTMLElement;
         refresh(): Sigma;
         render(): Sigma;
         resize(): Sigma;
-        settings(settings: { [index: string]: any }): void;
+        settings(settings: Settings): void;
     }
 
     interface RendererConfigs{
@@ -129,6 +136,7 @@ declare module SigmaJs{
         refresh(): void;
         renderers: Renderer[];
         settings(key: string): any;
+        settings(settings: Settings): void;
 
         // forceAtlas2 layout
         configForceAtlas2(configs: { [key: string]: any }): void;
@@ -175,10 +183,11 @@ declare module SigmaJs{
         minArrowSize?: number;
         font?: string;
         fontStyle?: string;
+        labelAlignment?: string;
         labelColor?: string;
         labelSize?: string;
         labelSizeRatio?: string;
-        labelThreshold?: string;
+        labelThreshold?: number;
         webglOversamplingRatio?: number;
 
         // hovered node customizations
@@ -245,7 +254,7 @@ declare module SigmaJs{
 
         // Global settings
         autoResize?: boolean;
-        autoRescale?: boolean;
+        autoRescale?: any;
         enableCamera?: boolean;
         enableHovering?: boolean;
         enableEdgeHovering?: boolean;
